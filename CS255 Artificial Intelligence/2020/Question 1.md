@@ -31,7 +31,7 @@ P(shower|OB) = (.82 x .1) / .19
              = .43158
 ```
 
-The same logic holds for finding `(shower|NN)`:
+The same logic holds for finding `P(shower|NN)`:
 
 ```
 P(shower|NN) = (P(NN|shower) x P(shower)) / P(NN)
@@ -45,7 +45,13 @@ P(shower|NN) = (.88 x .1) / .223
 Since 0.43158 > 0.39462 the **observatory** is a more reliable indicator
 
 ### ii.
-No clue lol
+We need to determine which prediction is more likely to be correct, i.e., `P(¬shower|¬NN)` vs. `P(shower|OB)`.
+Using Baye's rule:
+```
+P(¬shower|¬NN) = (.85 x .9) / (.85 x .9 + .12 x .1)
+               = .98456
+```
+Since `P(¬shower|¬NN)` > `P(shower|OB)`, the scientist **shouldn't** expect a meteor shower.
 
 
 ## Part c
