@@ -1,3 +1,27 @@
+# a
+_Note: The question describes a 'universal-NFA', and then asks to prove that 'complete-NFAs' recognise precisely regular languages. Assuming they mean the same thing, we'll refer to them as 'complete-NFA'_
+
+Claim: Every complete-NFA has an equivalent DFA.  
+Proof: Let N = (Q, Σ, 𝛿, q<sub>0</sub>, F) be the complete-NFA recognising some language L.  
+We construct a DFA M = (Q', Σ, 𝛿', q<sub>0</sub>', F') recognising L.
+
+1. Q' = 2<sup>Q</sup>
+2. For R ∈ Q', and a ∈ Σ, let 𝛿'(R,a) = {q ∈ Q | q ∈ E-CLOSE(𝛿(r,a)) for some r ∈ R}.
+3. q<sub>0</sub>' = E-CLOSE({q<sub>0</sub>})
+4. F' = {R ∈ Q' | R ⊆ F}
+
+The machine M accepts if all possible states that N could be in after reading are accept states.
+
+Corollary: A language is regular if and only if some complete-NFA recognises it.  
+Proof:  
+(⇒) A language is regular  
+⇒ Some DFA recognises it  
+⇒ Some complete-NFA recognises it [**any DFA is also a complete-NFA**]  
+
+(⇐) Some complete-NFA recognises a language  
+⇒ An equivalent DFA recognises the same language [**by the above claim**]  
+⇒ The language recognised is regular
+
 # b
 L = {a<sup>n</sup>b<sup>n<sup>3</sup></sup>c<sup>n</sup> | n ≥ 0}  
 Assume by contradiction that L is context-free.  
